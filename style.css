@@ -1,13 +1,10 @@
 :root {
-    /* لوحة الألوان الأساسية والهوية البصرية */
     --clr-primary: #0F172A;
     --clr-accent: #146914;
     --clr-bg-main: #FFFFFF;
     --clr-bg-alt: #F8FAFC;
     --clr-border: #E2E8F0;
     --clr-text-muted: #64748B;
-    
-    /* الخطوط والتأثيرات الحركية الفاخرة */
     --font-ar-global: 'Cairo', sans-serif;
     --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     --shadow-subtle: 0 4px 20px -2px rgba(15, 23, 42, 0.02);
@@ -15,7 +12,6 @@
     --shadow-hover: 0 30px 50px -10px rgba(20, 105, 20, 0.08);
 }
 
-/* التصفير العام وضبط الانسيابية */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -48,7 +44,6 @@ button {
     font-family: inherit;
 }
 
-/* شريط التنقل العلوي الذكي */
 .nav-header {
     position: fixed;
     top: 0;
@@ -179,7 +174,6 @@ button {
     height: 24px;
 }
 
-/* قسم الواجهة الرئيسية (Hero) المتطور بالفيديو */
 .hero-viewport {
     padding-top: 160px;
     padding-bottom: 100px;
@@ -271,7 +265,6 @@ button {
     color: var(--clr-accent);
 }
 
-/* الكتل والأقسام العامة */
 .global-content-wrapper {
     width: 100%;
 }
@@ -318,10 +311,9 @@ button {
     color: var(--clr-primary);
 }
 
-/* شبكة معلومات من نحن */
 .corporate-info-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 32px;
 }
 
@@ -352,10 +344,9 @@ button {
     font-size: 15.5px;
 }
 
-/* شبكة الخدمات المتطابقة (الأيقونات) */
 .services-functional-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 32px;
 }
 
@@ -403,10 +394,9 @@ button {
     color: var(--clr-text-muted);
 }
 
-/* معرض المنتجات عالي الدقة (الصور الفاخرة) */
 .product-showcase-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 24px;
 }
 
@@ -471,10 +461,9 @@ button {
     padding: 0 20px 24px 20px;
 }
 
-/* قنوات التواصل والخريطة */
 .contact-split-layout {
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 48px;
     align-items: start;
 }
@@ -539,7 +528,6 @@ button {
     border: none;
 }
 
-/* تذييل الصفحة الراقية */
 .corporate-footer {
     background-color: var(--clr-primary);
     color: #94A3B8;
@@ -558,13 +546,12 @@ button {
     font-weight: 500;
 }
 
-/* شاشات الاستجابة المتجاوبة (Responsiveness) */
 @media (max-width: 1024px) {
-    .services-functional-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .hero-wrapper-grid {
+        gap: 32px;
     }
-    .product-showcase-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .hero-main-heading {
+        font-size: 40px;
     }
 }
 
@@ -574,6 +561,21 @@ button {
     }
     .navigation-menu {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 24px;
+        border-bottom: 1px solid var(--clr-border);
+        gap: 20px;
+        box-shadow: var(--shadow-card);
+    }
+    .navigation-menu.open {
+        display: flex;
     }
     .mobile-menu-toggle {
         display: flex;
@@ -583,19 +585,28 @@ button {
         gap: 40px;
     }
     .hero-main-heading {
-        font-size: 34px;
+        font-size: 32px;
     }
-    .corporate-info-grid {
-        grid-template-columns: 1fr;
+    .hero-visual-panel {
+        height: 320px;
     }
-    .services-functional-grid {
-        grid-template-columns: 1fr;
-    }
-    .contact-split-layout {
-        grid-template-columns: 1fr;
-        gap: 32px;
+    .info-statement-card {
+        padding: 32px;
     }
     .meta-detail-row:hover {
         transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-main-heading {
+        font-size: 28px;
+    }
+    .hero-body-desc {
+        font-size: 16px;
+    }
+    .interactive-btn {
+        width: 100%;
+        text-align: center;
     }
 }
